@@ -62,7 +62,14 @@ exports.CollectFile = async ctx => {
   let MemberId = token.decode(tokenUser).MemberId;
   // 收藏
   let CollectInfo = {};
-
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
   if (!ino) {
     ctx.body = {
       code: -1,
@@ -190,7 +197,14 @@ exports.GenerateShare = async ctx => {
   // 定义
   let MemberInfo = token.decode(tokenUser);
   let ShareUrl = util.RandomStr();
-
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
   if (!ino) {
     ctx.body = {
       code: -1,
@@ -277,7 +291,14 @@ exports.ShareFileList = async ctx => {
   let url = ctx.request.body.url || '';
   let filePath = config.service.dir + url;
   let fileName = url;
-
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
   if(status != 1){
     // 获取token 获取自己分享列表
     let tokenUser = ctx.request.headers.token||'';

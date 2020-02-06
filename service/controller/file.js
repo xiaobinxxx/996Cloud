@@ -29,6 +29,10 @@ function sortData(a, b) {
  */
 async function RenameUpdate(NewName,url,ino){
   let ShareInfo = await ShareModel.findOne({where: {ino: ino}});
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    return;
+  }
   if(ShareInfo){
     ShareModel.update(
       {
@@ -141,6 +145,14 @@ exports.getFiles = async ctx => {
   let filePath = config.service.dir + url;
   let fileName = url;
   let CollectInfo = {};
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
   if (!ino) {
     ctx.body = {
       code: -1,
@@ -216,7 +228,23 @@ exports.CreateFolder = async ctx => {
   let url = ctx.request.body.url || '';
   let fileName = ctx.request.body.fileName || '';
   let filePath = config.service.dir + url;
-
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: 0,
+      status: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
+  if(reg.test(fileName)){
+    ctx.body = {
+      code: 0,
+      status: -10,
+      message: '目录名称不合法',
+    };
+    return;
+  }
   if (!fileName) {
     ctx.body = {
       code: 0,
@@ -266,7 +294,14 @@ exports.DeleteFile = async ctx => {
     };
     return;
   }
-
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
   for (let i = 0; i < FilesArr.length; i++) {
     await DelUpdate(FilesArr[i].ino);
     name = FilesArr[i].name || '';
@@ -337,7 +372,21 @@ exports.RenameFile = async ctx => {
   let NewName = ctx.request.body.NewName || '';
   let url = ctx.request.body.url || '';
   let filePath = `${config.service.dir}${url}`;
-
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
+  if(reg.test(NewName)){
+    ctx.body = {
+      code: -10,
+      message: '不合法目录名',
+    };
+    return;
+  }
   if (!name) {
     ctx.body = {
       code: -1,

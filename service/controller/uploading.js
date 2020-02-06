@@ -87,6 +87,14 @@ exports.upload = async ctx => {
   let fileUrl = '.' + config.service.dir;
   let filePath = '';
 
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
   if(!file){
     ctx.body = {
       code: -1,
@@ -173,6 +181,14 @@ exports.uploadApp = async ctx => {
   let filePath;
   let reader;
   let upStream;
+  let reg = /[\s\.]/g;
+  if(reg.test(url)){
+    ctx.body = {
+      code: -10,
+      message: '不存在此目录',
+    };
+    return;
+  }
   if(!files){
     ctx.body = {
       code: -1,
