@@ -1,0 +1,300 @@
+
+.page{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 45px;
+  box-sizing: border-box;
+}
+
+/*侧边导航栏*/
+.app-navigation{
+  width: 250px;
+  height: 100%;
+  float: left;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding-bottom: 44px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-right: 1px solid #eee;
+  .nav-list{
+    width 100%;
+    height 100%;
+    .list{
+      padding 0 4%;
+      height 45px;
+      a{
+        display flex;
+        align-items center;
+        height 100%;
+        color #999;
+        font-size 14px;
+        .icon{
+          font-size 16px;
+        }
+        span{
+          margin-right 10px;
+        }
+      }
+      a:hover{
+        color #212121;
+      }
+    }
+    .active{
+      background-color rgba(240, 240, 240, .9);
+      a{
+        color #212121;
+      }
+    }
+  }
+}
+/*文件页面*/
+.app-files{
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  // 导航进步
+  .controls{
+    display flex;
+    align-items center;
+    padding 0 4%;
+    height 45px;
+    .nav-list{
+      display flex;
+      align-items center;
+      height 100%;
+      margin-right 5px;
+      span{
+        margin-right 10px;
+        font-size 14px;
+        color #999999;
+      }
+      span:hover{
+        color #cccccc;
+      }
+      .more{
+        width 10px;
+        height 10px;
+        border-right 1px solid #999999;
+        border-bottom 1px solid #999999;
+        transform rotate(-45deg);
+      }
+    }
+    .add-btn{
+      display flex;
+      align-items center;
+      justify-content center;
+      width 35px;
+      height 35px;
+      border-radius 4px;
+      background-color rgba(240,240,240,.9);
+      cursor pointer;
+      span{
+        font-size 16px;
+        color #999999;
+      }
+      span:hover{
+        color #cccccc;
+      }
+    }
+  }
+  // 进度条
+  .progress{
+    width 94%;
+    margin-left 4%;
+  }
+  // 标题
+  .head-title{
+    display flex;
+    align-items center;
+    padding 0 4%;
+    height 45px;
+    .list{
+      display flex;
+      align-items center;
+      height 100%;
+      font-size 14px;
+      color #999999;
+      border-bottom 1px solid #eeeeee;
+      box-sizing border-box;
+      cursor pointer;
+      span {
+        display flex;
+        align-items center;
+        .sort{
+          width 0;
+          height 0;
+          border-left 5px solid transparent;
+          border-right 5px solid transparent;
+          border-bottom 5px solid #9c9ea5;
+          margin-left 5px;
+          transition all 0.3s;
+        }
+      }
+    }
+  }
+  // 文件列表
+  .file-list{
+    padding 0 4%;
+    //height 45px;
+    .list{
+      position relative;
+      display flex;
+      align-items center;
+      width 100%;
+      height 45px;
+      font-size 14px;
+      color #999999;
+      border-bottom 1px solid #eeeeee;
+      box-sizing border-box;
+      cursor pointer;
+      .icon{
+        position relative;
+        font-size 24px;
+        .thumb{
+          width 32px;
+          height 32px;
+          font-size 30px;
+          img{
+            width 30px;
+            height 30px;
+          }
+        }
+        .check{
+          display none;
+          position absolute;
+          left 24px;
+          bottom 6px;
+          width 10px;
+          height 10px;
+        }
+      }
+      .icon:hover .check{
+        display inline-block;
+      }
+      .name{
+        color #222222;
+        input{
+          background-color #ffffff;
+          width 90%;
+        }
+        .isname{
+          border 1px solid #eeeeee;
+          border-radius: 5px;
+          height 25px;
+          width 80%;
+          padding 0 2%;
+        }
+      }
+      .operation{
+        position relative;
+        display flex;
+        align-items center;
+        justify-content space-around;
+        >span{
+          font-size 16px;
+          cursor pointer;
+          color #cccccc;
+        }
+        .icon-share{
+          margin-right 20px;
+        }
+        .icon-share:hover{
+          color #212121;
+        }
+        .more-list{
+          width 100%;
+          height 100%;
+        }
+      }
+      .collect{
+        position absolute;
+        left -30px;
+        top 0;
+        display flex;
+        align-items center;
+        width 30px;
+        height 100%;
+        span{
+          display none;
+          font-size 16px;
+          color #ccc;
+        }
+      }
+    }
+    .list:hover{
+      background-color #F6F6F6;
+      .collect span{
+        display inline-block;
+      }
+      input{
+        background-color #F6F6F6;
+      }
+    }
+  }
+}
+/*添加弹窗*/
+.popover{
+  position absolute;
+  top 30px;
+  left 20px;
+  z-index 100;
+  width 120px;
+  padding 5px 10px;
+  background-color #ffffff;
+  border-radius 5px;
+  box-shadow 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.add-list{
+  width 100%;
+  .lists{
+    display flex;
+    align-items center;
+    width 100%;
+    height 40px;
+    cursor pointer;
+    span{
+      font-size 14px !important;
+      color #999999;
+    }
+    .iconfont{
+      font-size 16px;
+      margin-right 10px;
+    }
+    input{
+      width 80%;
+      height 80%;
+      border 1px solid #eeeeee;
+      border-radius 6px;
+      padding 0 4%;
+    }
+  }
+}
+.popover:before{
+  position absolute;
+  content '';
+  top: -6px;
+  left 50%;
+  width 0;
+  height 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 6px;
+  margin-left: -6px;
+  border-top-width: 0;
+  border-bottom-color: #FFF;
+  transform translate(-50%,0);
+}
+@media only screen and (max-width: 768px){
+  .app-navigation{
+    width 0;
+    transition all 0.5s;
+    .nav-list{
+      display none;
+    }
+  }
+}

@@ -1,0 +1,321 @@
+
+.page{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 45px;
+  box-sizing: border-box;
+}
+
+/*侧边导航栏*/
+.app-navigation{
+  width: 250px;
+  height: 100%;
+  float: left;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding-bottom: 44px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-right: 1px solid #eee;
+  .nav-list{
+    width 100%;
+    height 100%;
+    .list{
+      padding 0 4%;
+      height 45px;
+      a{
+        display flex;
+        align-items center;
+        height 100%;
+        color #999;
+        font-size 14px;
+        .icon{
+          font-size 16px;
+        }
+        span{
+          margin-right 10px;
+        }
+      }
+    }
+    .active{
+      background-color rgba(240, 240, 240, .9);
+      a{
+        color #212121;
+      }
+    }
+  }
+}
+/*文件页面*/
+.app-files{
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+  // 导航进步
+  .controls{
+    display flex;
+    align-items center;
+    padding 0 4%;
+    height 45px;
+    .nav-list{
+      display flex;
+      align-items center;
+      height 100%;
+      margin-right 5px;
+      span{
+        margin-right 10px;
+        font-size 14px;
+        color #999999;
+      }
+      .more{
+        width 10px;
+        height 10px;
+        border-right 1px solid #999999;
+        border-bottom 1px solid #999999;
+        transform rotate(-45deg);
+      }
+    }
+
+    .add-btn{
+      display flex;
+      align-items center;
+      justify-content center;
+      width 35px;
+      height 35px;
+      border-radius 4px;
+      background-color rgba(240,240,240,.9);
+      cursor pointer;
+      span{
+        font-size 16px;
+        color #999999;
+      }
+    }
+  }
+  // 进度条
+  .progress{
+    width 94%;
+    margin-left 4%;
+  }
+  // 标题
+  .head-title{
+    display flex;
+    align-items center;
+    padding 0 4%;
+    height 45px;
+    .list{
+      display flex;
+      align-items center;
+      height 100%;
+      font-size 14px;
+      color #999999;
+      border-bottom 1px solid #eeeeee;
+      box-sizing border-box;
+    }
+  }
+  // 文件列表
+  .file-list{
+    padding 0 4%;
+    height 45px;
+    .list{
+      position relative;
+      display flex;
+      align-items center;
+      width 100%;
+      height 45px;
+      font-size 14px;
+      color #999999;
+      border-bottom 1px solid #eeeeee;
+      box-sizing border-box;
+      cursor pointer;
+      .icon{
+        position relative;
+        font-size 24px;
+        .thumb{
+          width 32px;
+          height 32px;
+          font-size 30px;
+          img{
+            width 30px;
+            height 30px;
+          }
+        }
+        .check{
+          display none;
+          position absolute;
+          left 24px;
+          bottom 6px;
+          width 10px;
+          height 10px;
+        }
+      }
+      .icon:hover .check{
+        display inline-block;
+      }
+      .name{
+        color #222222;
+        input{
+          width 90%;
+          background-color #ffffff;
+        }
+        .isname{
+          border 1px solid #eeeeee;
+          border-radius: 5px;
+          height 25px;
+          width 80%;
+          padding 0 2%;
+        }
+      }
+      .operation{
+        display flex;
+        align-items center;
+        justify-content space-around;
+        span{
+          font-size 16px;
+          cursor pointer;
+          color #cccccc;
+        }
+        .more-list{
+          width 100%;
+          height 100%;
+        }
+      }
+      .collect{
+        position absolute;
+        left -30px;
+        top 0;
+        display flex;
+        align-items center;
+        width 30px;
+        height 100%;
+        span{
+          display none;
+          font-size 16px;
+          color #ccc;
+        }
+      }
+    }
+    .list:hover .collect span{
+      display inline-block;
+    }
+  }
+}
+/*添加弹窗*/
+.add-list{
+  width 100%;
+  .list{
+    display flex;
+    align-items center;
+    width 100%;
+    height 40px;
+    cursor pointer;
+    span{
+      font-size 14px;
+      color #999999;
+    }
+    .iconfont{
+      font-size 16px;
+      margin-right 10px;
+    }
+    input{
+      width 80%;
+      height 80%;
+      border 1px solid #eeeeee;
+      border-radius 6px;
+      padding 0 4%;
+    }
+  }
+}
+/*文件详情*/
+.file-details{
+  width 100%;
+  height 100%;
+  .file-info{
+    display flex;
+    align-items center;
+    padding 0 4%;
+    height 100px;
+    .thmub{
+      display flex;
+      align-items center;
+      height 80%;
+      span{
+        font-size 70px;
+      }
+      img{
+        width 70px;
+        height 70px;
+      }
+    }
+    .item{
+      display flex;
+      flex-direction column;
+      justify-content center;
+      height 80%;
+      margin-left 3%;
+      .title{
+        height 30px;
+        line-height 30px;
+        span{
+          color #222222;
+          font-size 14px;
+        }
+      }
+      .date-num{
+        height 30px;
+        line-height 30px;
+        span{
+          color #cccccc;
+          font-size 14px;
+          margin-left 5px;
+        }
+      }
+    }
+  }
+  // 文件操作
+  .file-operation{
+    padding 0 4%;
+    margin 10px auto;
+    .operation-tab{
+      .shar-password{
+        border 1px solid #eeeeee;
+        border-radius 5px;
+        padding 0 4%;
+      }
+      .link{
+        width 100%;
+        line-height 25px;
+        .ti{
+          font-size 14px;
+          color assist-clor;
+        }
+        .pass{
+          height 40px;
+          line-height 40px;
+          span{
+            font-size 14px;
+            margin-right 10px;
+            color #999999;
+            input{
+              background-color transparent;
+            }
+          }
+        }
+      }
+      .demonstration{
+        font-size 14px;
+        color #9c9ea5;
+      }
+      .create-btn{
+        margin-top 20px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px){
+  .app-navigation{
+    display none;
+  }
+}

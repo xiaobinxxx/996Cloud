@@ -1,0 +1,120 @@
+.page {
+
+}
+
+.header {
+  position fixed;
+  top 0;
+  left 0;
+  right 0;
+  z-index 2000;
+  height 45px;
+  line-height 2.5em;
+  background-color base;
+  box-sizing border-box;
+
+  .logo {
+    width 45px;
+    height 45px;
+    margin 0 auto;
+
+    img {
+      width 100%;
+      height 100%;
+    }
+  }
+
+  .head-extend {
+    position absolute;
+    right 15px;
+    top 0;
+    display flex;
+    align-items center;
+    height 100%;
+    .fa{
+      font-size 16px;
+      color #ffffff;
+      cursor pointer;
+    }
+    .search {
+      display flex;
+      align-items center;
+      height 30px;
+      background-color change-clor;
+      border-radius 4px;
+      transition all 0.3s;
+      overflow hidden;
+      span {
+        font-size 16px;
+        color #ffffff;
+        margin-left 5px;
+      }
+
+      input {
+        height 100%;
+        background-color transparent;
+        margin-left 10px;
+        color #ffffff;
+      }
+
+      input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: #ffffff;
+      }
+
+      input::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #ffffff;
+      }
+
+      input::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #ffffff;
+      }
+
+      input::-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #ffffff;
+      }
+
+      input::-ms-input-placeholder { /* Microsoft Edge */
+        color: #ffffff;
+      }
+    }
+    .user-info{
+      display flex;
+      align-items center;
+      height 30px;
+      cursor pointer;
+      .name{
+        display flex;
+        align-items center;
+        padding 0 10px;
+        span{
+          font-size 14px;
+          color #ffffff;
+        }
+        .pull-down{
+          width: 0;
+          height: 0;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 6px solid #ffffff;
+          margin-left 5px;
+        }
+      }
+    }
+  }
+}
+.info-list{
+  display flex;
+  align-items center;
+  width 100%;
+  height 40px;
+  color #9c9ea5
+  span{
+    font-size 14px;
+    color #222222;
+    cursor pointer;
+  }
+  span:nth-child(1){
+    margin-right 10px;
+    font-weight bold;
+  }
+}

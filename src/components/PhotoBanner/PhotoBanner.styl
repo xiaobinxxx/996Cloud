@@ -1,0 +1,114 @@
+.photo-banner{
+  position fixed;
+  left 0;
+  top 45px;
+  z-index 100;
+  width 100%;
+  height 100%;
+  background-color rgba(0,0,0,0.3);
+  transition all 1s;
+  .photo-slide{
+    white-space: nowrap;
+    height 100%;
+    transition-duration: 500ms;
+    .slide{
+      position relative;
+      display inline-block;
+      width 100%;
+      height 100%;
+      color #ffffff;
+      img{
+        display block;
+        max-width 100%;
+        margin 5% auto 0;
+      }
+      .name{
+        position absolute;
+        left 50%;
+        bottom 20%;
+        font-size 16px;
+        transform translate(-50%,0);
+      }
+    }
+  }
+  // 控件
+  .control{
+    position absolute;
+    left 50%;
+    bottom 10%;
+    display flex;
+    align-items center;
+    justify-content space-between;
+    width 70%;
+    height 60px;
+    background-color rgba(0,0,0,.5);
+    transform translate(-50%,0);
+    .cut{
+      display flex;
+      align-items center;
+      justify-content center;
+      width 33%;
+      height 100%;
+      cursor pointer;
+      .pagination{
+        display flex;
+        align-items center;
+        justify-content center;
+        width 30%;
+        font-size 16px;
+        color #ffffff;
+      }
+      .next-left{
+        width: 14px;
+        height: 14px;
+        border-left 1px solid #ffffff;
+        border-bottom: 1px solid #ffffff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+      .next-right{
+        width: 14px;
+        height: 14px;
+        border-right: 1px solid #ffffff;
+        border-bottom: 1px solid #ffffff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+    }
+    .operate{
+      display flex;
+      align-items center;
+      width 33%;
+      height 100%;
+      .ate{
+        display flex;
+        justify-content center;
+        align-items center;
+        width 33%;
+        height 100%;
+        span{
+          font-size 18px;
+          color #ffffff;
+        }
+      }
+    }
+    .extend{
+      display flex;
+      align-items center;
+      justify-content flex-end;
+      width 33%;
+      height 100%;
+      .ex{
+        display flex;
+        justify-content center;
+        align-items center;
+        width 33%;
+        height 100%;
+        span{
+          font-size 18px;
+          color #ffffff;
+        }
+      }
+    }
+  }
+}
