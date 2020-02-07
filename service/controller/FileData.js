@@ -62,8 +62,7 @@ exports.CollectFile = async ctx => {
   let MemberId = token.decode(tokenUser).MemberId;
   // 收藏
   let CollectInfo = {};
-  let reg = /[\s\.]/g;
-  if(reg.test(url)){
+  if(url.indexOf('../') != -1){
     ctx.body = {
       code: -10,
       message: '不存在此目录',
@@ -197,8 +196,8 @@ exports.GenerateShare = async ctx => {
   // 定义
   let MemberInfo = token.decode(tokenUser);
   let ShareUrl = util.RandomStr();
-  let reg = /[\s\.]/g;
-  if(reg.test(url)){
+
+  if(url.indexOf('../') != -1){
     ctx.body = {
       code: -10,
       message: '不存在此目录',

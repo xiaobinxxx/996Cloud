@@ -89,7 +89,6 @@ exports.getHome = async ctx => {
   let filePath = config.service.dir;
   let fileName = '';
   let CollectInfo = {};
-
   try {
     FileList = fs.readdirSync(filePath);
     for( let i = 0; i < FileList.length;i++) {
@@ -148,7 +147,8 @@ exports.getFiles = async ctx => {
   let reg = /[\s\.]/g;
   if(reg.test(url)){
     ctx.body = {
-      code: -10,
+      code: 0,
+      status: -10,
       message: '不存在此目录',
     };
     return;
@@ -228,7 +228,7 @@ exports.CreateFolder = async ctx => {
   let url = ctx.request.body.url || '';
   let fileName = ctx.request.body.fileName || '';
   let filePath = config.service.dir + url;
-  let reg = /[\s\.]/g;
+  let reg = /[\\\/:*?'<>|]/i;
   if(reg.test(url)){
     ctx.body = {
       code: 0,
@@ -372,18 +372,18 @@ exports.RenameFile = async ctx => {
   let NewName = ctx.request.body.NewName || '';
   let url = ctx.request.body.url || '';
   let filePath = `${config.service.dir}${url}`;
-  let reg = /[\s\.]/g;
-  if(reg.test(url)){
+
+  if(url.indexOf('../') != -1){
     ctx.body = {
       code: -10,
       message: '不存在此目录',
     };
     return;
   }
-  if(reg.test(NewName)){
+  if(NewName.indexOf('../') != -1){
     ctx.body = {
       code: -10,
-      message: '不合法目录名',
+      message: '名称不合法名',
     };
     return;
   }
